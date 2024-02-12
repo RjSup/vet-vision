@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>All Pets</title>
+</head>
+<body>
+  <h1>All Pets</h1>
+  <table>
+    <thead>
+      <tr>
+        <th>Owner Name</th>
+        <th>Pet Name</th>
+        <th>Pet Type</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for pet in pets %}
+        <tr>
+          <td>{{ pet[0] }}</td>
+          <td>{{ pet[1] }}</td>
+          <td>{{ pet[2] }}</td>
+        </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+</body>
+</html>

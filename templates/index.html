@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" href="{{ url_for('static', filename='index.css') }}">
+  <title>Add Pet</title>
+</head>
+<body>
+  <h1>Add a Pet</h1>
+  <form method="POST">
+    <label for="owner_name">Owner Name:</label>
+    <input type="text" id="owner_name" name="owner_name" required>
+    <br>
+    <label for="pet_name">Pet Name:</label>
+    <input type="text" id="pet_name" name="pet_name" required>
+    <br>
+    <label for="pet_type">Pet Type:</label>
+    <input type="text" id="pet_type" name="pet_type" required>
+    <br>
+    <button type="submit">Add Pet</button>
+  </form>
+</body>
+<script src="{{url_for('static', filename='index.js')}}"></script>
+</html>
