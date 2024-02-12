@@ -5,28 +5,30 @@
   <title>Vet Vision | Bone Classification</title>
 </head>
 <body>
-    <header class="header">
-      <a class="logo" href=".page-top">VetVision</a>
-      <ul class="menu">
-        <li><a href="#one" class="link link-theme link-arrow">Home</a></li>
-        <li><a href="#two" class="link link-theme link-arrow">About</a></li>
-        <li><a href="#three" class="link link-theme link-arrow">Contact</a></li>
-      </ul>
-    </header>
-    <div class="p1">
-        <h1>Diagnose Pet</h1>
-        <form method="POST">
-            <label for="owner_name">Owner Name:</label>
-            <input type="text" id="owner_name" name="owner_name" required>
-            <br>
-            <label for="pet_name">Pet Name:</label>
-            <input type="text" id="pet_name" name="pet_name" required>
-            <br>
-            <label for="pet_type">Pet Type:</label>
-            <input type="text" id="pet_type" name="pet_type" required>
-            <br>
-            <button type="submit">Add Pet</button>
-        </form>
+    <div class="im" style="background-image:url(../static/catcatdogdog.avif);">
+        <header class="header">
+        <a class="logo" href=".page-top">VetVision</a>
+        <ul class="menu">
+            <li><a href="#one" class="link link-theme link-arrow">Home</a></li>
+            <li><a href="#two" class="link link-theme link-arrow">About</a></li>
+            <li><a href="#three" class="link link-theme link-arrow">Contact</a></li>
+        </ul>
+        </header>
+        <div class="p1">
+            <h1>Diagnose Pet</h1>
+            <form method="POST">
+                <label for="owner_name">Owner Name:</label>
+                <input type="text" id="owner_name" name="owner_name" required>
+                <br>
+                <label for="pet_name">Pet Name:</label>
+                <input type="text" id="pet_name" name="pet_name" required>
+                <br>
+                <label for="pet_type">Pet Type:</label>
+                <input type="text" id="pet_type" name="pet_type" required>
+                <br>
+                <button type="submit">Add Pet</button>
+            </form>
+        </div>
     </div>
 </body>
 <script src="{{url_for('static', filename='index.js')}}"></script>
