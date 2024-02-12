@@ -5,6 +5,8 @@ from sklearn.model_selection import train_test_split
 from sklearn.metrics import accuracy_score
 import numpy as np
 
+# TODO - receive file from front end and put it through the model
+
 # standardize the images
 def standardize_image(img, target_color=(0, 0, 0), target_size=(224, 224)):
     # Standardizes the image by setting a common color and resizing to a common size
@@ -97,6 +99,8 @@ def algo(healthy_images, broken_images):
     # Calculate accuracy
     accuracy = accuracy_score(y_test, y_pred)
     print("Accuracy:", accuracy*100,"%")
+
+    # TODO - SEND OR SHOW RESULT - WHICHEVER IS EASIER
 
 if __name__ == "__main__":
     # access folder
