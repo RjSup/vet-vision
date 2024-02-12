@@ -7,7 +7,7 @@ app = Flask(__name__)
 db_name = "pets.db"
 
 def get_db():
-    """Gets a database connection, creating one if needed."""
+    # Gets a database connection, creating one if needed
     if 'db' not in g:
         g.db = sqlite3.connect(db_name)
     return g.db
@@ -15,7 +15,7 @@ def get_db():
 
 @app.teardown_appcontext
 def close_connection(exception):
-    """Closes the database connection at the end of the request."""
+    # Closes the database connection at the end of the request
     db = g.pop('db', None)
     if db is not None:
         db.close()
@@ -46,7 +46,8 @@ def add_pet():
 
         return "Pet added successfully!"
     
-
+    
+# access /all_pets to see all pets in database
 @app.route('/all_pets')
 def all_pets():
     db = get_db()
