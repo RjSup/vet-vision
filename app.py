@@ -50,7 +50,6 @@ def all_pets():
     cursor = db.cursor()
     cursor.execute("SELECT * FROM pets")
     pets = cursor.fetchall()
-    print(pets)  # Inspect data here
     return render_template("all_pets.html", pets=pets)
 
 
