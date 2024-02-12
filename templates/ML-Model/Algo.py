@@ -100,7 +100,7 @@ def algo(healthy_images, broken_images):
     # TODO - SEND OR SHOW RESULT - WHICHEVER IS EASIER
 
 if __name__ == "__main__":
-    # TODO - receive file from front end and put it through the model to replace accessing the folders
+    # TODO - receive file from front end and put it through the model - to replace accessing the folders
 
     # access folder
     healthy_folder = "/Users/Ryan/Documents/Uni/testproject/templates/ML-Model/Healthy"  # Specify the Healthy folder path
