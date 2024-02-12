@@ -12,12 +12,14 @@ def get_db():
         g.db = sqlite3.connect(db_name)
     return g.db
 
+
 @app.teardown_appcontext
 def close_connection(exception):
     """Closes the database connection at the end of the request."""
     db = g.pop('db', None)
     if db is not None:
         db.close()
+
 
 @app.route('/', methods=["GET", "POST"])
 def add_pet():
@@ -43,6 +45,7 @@ def add_pet():
         db.commit()
 
         return "Pet added successfully!"
+    
 
 @app.route('/all_pets')
 def all_pets():
