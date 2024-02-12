@@ -73,8 +73,7 @@ def algo(healthy_images, broken_images):
     global training_data  # Declare as global for accessibility
     training_data = (feature_vectors, training_labels)
 
-    # Suggest potential algorithms
-    print("Consider exploring these algorithms:")
+    # Algorithm
     print("- Decision trees")
 
     #Algorithm
