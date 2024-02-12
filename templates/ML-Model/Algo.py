@@ -100,8 +100,8 @@ def algo(healthy_images, broken_images):
 
 if __name__ == "__main__":
     # access folder
-    healthy_folder = "./Healthy"  # Specify the Healthy folder path
-    broken_folder = "./Broken"  # Specify the Broken folder path
+    healthy_folder = "/Users/Ryan/Documents/Uni/testproject/templates/ML-Model/Healthy"  # Specify the Healthy folder path
+    broken_folder = "/Users/Ryan/Documents/Uni/testproject/templates/ML-Model/Healthy"  # Specify the Broken folder path
 
     # sort images
     healthyArr = healthyTraining(healthy_folder)
