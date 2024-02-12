@@ -5,8 +5,6 @@ from sklearn.model_selection import train_test_split
 from sklearn.metrics import accuracy_score
 import numpy as np
 
-# TODO - receive file from front end and put it through the model
-
 # standardize the images
 def standardize_image(img, target_color=(0, 0, 0), target_size=(224, 224)):
     # Standardizes the image by setting a common color and resizing to a common size
@@ -103,6 +101,8 @@ def algo(healthy_images, broken_images):
     # TODO - SEND OR SHOW RESULT - WHICHEVER IS EASIER
 
 if __name__ == "__main__":
+    # TODO - receive file from front end and put it through the model to replace accessing the folders
+
     # access folder
     healthy_folder = "/Users/Ryan/Documents/Uni/testproject/templates/ML-Model/Healthy"  # Specify the Healthy folder path
     broken_folder = "/Users/Ryan/Documents/Uni/testproject/templates/ML-Model/Healthy"  # Specify the Broken folder path
