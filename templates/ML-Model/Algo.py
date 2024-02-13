@@ -104,7 +104,7 @@ if __name__ == "__main__":
 
     # access folder
     healthy_folder = "/Users/Ryan/Documents/Uni/testproject/templates/ML-Model/Healthy"  # Specify the Healthy folder path
-    broken_folder = "/Users/Ryan/Documents/Uni/testproject/templates/ML-Model/Healthy"  # Specify the Broken folder path
+    broken_folder = "/Users/Ryan/Documents/Uni/testproject/templates/ML-Model/Broken"  # Specify the Broken folder path
 
     # sort images
     healthyArr = healthyTraining(healthy_folder)
