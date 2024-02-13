@@ -1,4 +1,4 @@
-from flask import Flask, request, render_template, g
+from flask import Flask, redirect, request, render_template, g, url_for
 import sqlite3
 
 app = Flask(__name__)
@@ -47,15 +47,45 @@ def add_pet():
         return "Pet added successfully!"
     
     
-# access /all_pets to see all pets in database
-@app.route('/all_pets')
+@app.route('/all_pets', methods=["GET", "POST"])
 def all_pets():
     db = get_db()
     cursor = db.cursor()
-    cursor.execute("SELECT * FROM pets")
-    pets = cursor.fetchall()
-    return render_template("all_pets.html", pets=pets)
 
+    if request.method == "GET":
+        cursor.execute("SELECT * FROM pets")
+        pets = cursor.fetchall()
+        return render_template("all_pets.html", pets=pets)
+
+    elif request.method == "POST":
+        owner_name_delete = request.form.get("owner_name_delete")
+        pet_name_delete = request.form.get("pet_name_delete")
+        pet_type_delete = request.form.get("pet_type_delete")
+
+        try:
+            query = "DELETE FROM pets WHERE "
+            conditions = []
+            if owner_name_delete:
+                conditions.append("owner_name = ?")
+            if pet_name_delete:
+                conditions.append("pet_name = ?")
+            if pet_type_delete:
+                conditions.append("pet_type = ?")
+            query += " AND ".join(conditions)
+
+            parameters = tuple([escape_input(val) for val in (owner_name_delete, pet_name_delete, pet_type_delete) if val])
+            cursor.execute(query, parameters)
+            db.commit()
+
+            return redirect(url_for('all_pets'))
+        except sqlite3.Error as e:
+            return f"An error occurred: {e}", 500
+
+# Implement a robust escape_input function for security
+def escape_input(value):
+    # Properly escape user-provided input to prevent SQL injection
+    # Consider using built-in escaping mechanisms or libraries
+    return value  # Replace with actual escaping logic
 
 if __name__ == '__main__':
     app.run()

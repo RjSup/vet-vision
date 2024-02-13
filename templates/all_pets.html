@@ -23,5 +23,17 @@
       {% endfor %}
     </tbody>
   </table>
+  <form method="POST">
+    <label for="owner_name_delete">Owner Name:</label>
+    <input type="text" id="owner_name" name="owner_name_delete" required>
+    <br>
+    <label for="pet_name">Pet Name:</label>
+    <input type="text" id="pet_name" name="pet_name_delete" required>
+    <br>
+    <label for="pet_type">Pet Type:</label>
+    <input type="text" id="pet_type" name="pet_type_delete" required>
+    <br>
+    <button type="submit">Delete from database</button>
+</form>
 </body>
 </html>
