@@ -11,6 +11,7 @@
         <th>Owner Name</th>
         <th>Pet Name</th>
         <th>Pet Type</th>
+        <th>Pet ID</th>
       </tr>
     </thead>
     <tbody>
@@ -19,6 +20,7 @@
           <td>{{ pet[0] }}</td>
           <td>{{ pet[1] }}</td>
           <td>{{ pet[2] }}</td>
+          <td>{{ pet[3] }}</td>
         </tr>
       {% endfor %}
     </tbody>
@@ -32,6 +34,9 @@
     <br>
     <label for="pet_type">Pet Type:</label>
     <input type="text" id="pet_type" name="pet_type_delete" required>
+    <br>
+    <label for="pet_id">Pet ID:</label>
+    <input type="text" id="pet_id" name="pet_id" required>
     <br>
     <button type="submit">Delete from database</button>
 </form>

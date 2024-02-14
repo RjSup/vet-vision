@@ -74,7 +74,7 @@ def algo(healthy_images, broken_images):
     training_data = (feature_vectors, training_labels)
 
     # Algorithm
-    print("- Decision trees")
+    print("- Decision tree")
 
     #Algorithm
 

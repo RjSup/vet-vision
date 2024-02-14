@@ -29,6 +29,7 @@ def add_pet():
         owner_name = request.form["owner_name"]
         pet_name = request.form["pet_name"]
         pet_type = request.form["pet_type"]
+        pet_id = request.form["pet_id"]
 
         # Get a database connection within the route context
         db = get_db()
@@ -39,8 +40,8 @@ def add_pet():
 
         # Insert data into the table
         cursor.execute(
-            "INSERT INTO pets (owner_name, pet_name, pet_type) VALUES (?, ?, ?)",
-            (owner_name, pet_name, pet_type),
+            "INSERT INTO pets (owner_name, pet_name, pet_type, pet_id) VALUES (?, ?, ?, ?)",
+            (owner_name, pet_name, pet_type, pet_id)
         )
         db.commit()
 
@@ -61,6 +62,7 @@ def all_pets():
         owner_name_delete = request.form.get("owner_name_delete")
         pet_name_delete = request.form.get("pet_name_delete")
         pet_type_delete = request.form.get("pet_type_delete")
+        pet_id = request.form.get("pet_id")
 
         try:
             query = "DELETE FROM pets WHERE "
@@ -71,9 +73,11 @@ def all_pets():
                 conditions.append("pet_name = ?")
             if pet_type_delete:
                 conditions.append("pet_type = ?")
+            if pet_id:
+                conditions.append("pet_id = ?")
             query += " AND ".join(conditions)
 
-            parameters = tuple([escape_input(val) for val in (owner_name_delete, pet_name_delete, pet_type_delete) if val])
+            parameters = tuple([escape_input(val) for val in (owner_name_delete, pet_name_delete, pet_type_delete, pet_id) if val])
             cursor.execute(query, parameters)
             db.commit()
 
