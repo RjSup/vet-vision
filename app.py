@@ -65,7 +65,7 @@ def all_pets():
         pets = cursor.fetchall()
         return render_template("all_pets.html", pets=pets)
 
-    # If a POST request - remove specific items from the databse
+    # If a POST request - remove specific items from database
     elif request.method == "POST":
         owner_name_delete = request.form.get("owner_name_delete")
         pet_name_delete = request.form.get("pet_name_delete")
