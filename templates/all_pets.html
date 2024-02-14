@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
+  <link rel="stylesheet" href="{{ url_for('static', filename='all_pets.css') }}">
   <title>All Pets</title>
 </head>
 <body>
@@ -41,4 +42,5 @@
     <button type="submit">Delete from database</button>
 </form>
 </body>
+<script src="{{url_for('static', filename='all_pets.js')}}"></script>
 </html>
