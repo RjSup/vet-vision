@@ -6,13 +6,19 @@ import sqlite3
 app = Flask(__name__)
 
 # Database name
-db_name = "pets.db"
+db_pets = "pets.db"
+db_login = "login.db"
 
 # Connect to our databse
-def get_db():
+def get_pet_db():
     # Gets a database connection, creating one if needed
     if 'db' not in g:
-        g.db = sqlite3.connect(db_name)
+        g.db = sqlite3.connect(db_pets)
+    return g.db
+
+def get_login_db():
+    if 'db' not in g:
+        g.db = sqlite3.connect(db_login)
     return g.db
 
 # Close the connection of the databse
@@ -39,7 +45,7 @@ def add_pet():
         pet_id = request.form["pet_id"]
 
         # Get a database connection within the route context
-        db = get_db()
+        db = get_pet_db()
         cursor = db.cursor()
 
         with open("schema.sql", "r") as f:  # Open schema file within the route
@@ -58,7 +64,7 @@ def add_pet():
 # Database page handles checking the database and removing data
 @app.route('/all_pets', methods=["GET", "POST"])
 def all_pets():
-    db = get_db()
+    db = get_pet_db()
     cursor = db.cursor()
 
     # If a GET request - retrieve all pets from database
