@@ -1,10 +1,23 @@
 from flask import (
-    Flask, redirect, request, render_template, g, url_for, session
+    Flask,
+    redirect,
+    request,
+    render_template,
+    g,
+    url_for,
+    session
 )
+
+import os
 import sqlite3 as sql
+from dotenv import load_dotenv
+
+# Load the .env file
+load_dotenv()
 
 app = Flask(__name__)
-app.secret_key = 'secret-key'
+
+app.secret_key = os.environ.get('SECRET_CODE')
 
 # Database name
 db_pets = "pets.db"
