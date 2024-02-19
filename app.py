@@ -1,24 +1,25 @@
 from flask import (
-    Flask, redirect, request, render_template, g, url_for
+    Flask, redirect, request, render_template, g, url_for, session
 )
-import sqlite3
+import sqlite3 as sql
 
 app = Flask(__name__)
+app.secret_key = 'secret-key'
 
 # Database name
 db_pets = "pets.db"
-db_login = "login.db"
+db_login = "logins.db"
 
 # Connect to our databse
 def get_pet_db():
     # Gets a database connection, creating one if needed
     if 'db' not in g:
-        g.db = sqlite3.connect(db_pets)
+        g.db = sql.connect(db_pets)
     return g.db
 
 def get_login_db():
     if 'db' not in g:
-        g.db = sqlite3.connect(db_login)
+        g.db = sql.connect(db_login)
     return g.db
 
 # Close the connection of the databse
@@ -29,6 +30,29 @@ def close_connection(exception):
     if db is not None:
         db.close()
 
+def check_credentials(username, password):
+    con = sql.connect("logins.db")
+    cur = con.cursor()
+    cur.execute("SELECT * FROM users WHERE username = ? AND password = ?", (username, password))
+    user = cur.fetchone()
+    con.close()
+    return user is not None
+
+# handles the login page and logic for login in
+@app.route('/login', methods=['POST', 'GET'])
+def login():
+        if request.method == 'POST':
+            username = request.form['username']
+            password = request.form['password']
+
+            if check_credentials(username, password):
+                session['logged_in'] = True
+                return redirect(url_for('all_pets'))
+            else:
+                # Display an error message for incorrect credentials
+                return "Error with these credentials"
+        else:
+            return render_template('login.html')
 
 # landing page - handling form data and storing in database
 # TODO Remove form data after submission - Add login to database button and login process
@@ -64,6 +88,9 @@ def add_pet():
 # Database page handles checking the database and removing data
 @app.route('/all_pets', methods=["GET", "POST"])
 def all_pets():
+    if 'logged_in' not in session:
+        return redirect(url_for('login'))
+
     db = get_pet_db()
     cursor = db.cursor()
 
@@ -98,7 +125,7 @@ def all_pets():
             db.commit()
 
             return redirect(url_for('all_pets'))
-        except sqlite3.Error as e:
+        except sql.Error as e:
             return f"An error occurred: {e}", 500
 
 # TODO Need to implement a robust escape_input function for security
