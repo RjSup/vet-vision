@@ -12,14 +12,14 @@ import os
 import sqlite3 as sql
 from dotenv import load_dotenv
 
-# Load the .env file
+# Load the .env file from root directory
 load_dotenv()
 
 app = Flask(__name__)
 
 app.secret_key = os.environ.get('SECRET_CODE')
 
-# Database name
+# database name
 db_pets = "pets.db"
 db_login = "logins.db"
 
