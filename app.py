@@ -23,6 +23,7 @@ app.secret_key = os.environ.get('SECRET_CODE')
 db_pets = "pets.db"
 db_login = "logins.db"
 
+
 # Connect to our databse
 def get_pet_db():
     # Gets a database connection, creating one if needed
@@ -30,10 +31,12 @@ def get_pet_db():
         g.db = sql.connect(db_pets)
     return g.db
 
+
 def get_login_db():
     if 'db' not in g:
         g.db = sql.connect(db_login)
     return g.db
+
 
 # Close the connection of the databse
 @app.teardown_appcontext
@@ -43,29 +46,33 @@ def close_connection(exception):
     if db is not None:
         db.close()
 
+
 def check_credentials(username, password):
     con = sql.connect("logins.db")
     cur = con.cursor()
-    cur.execute("SELECT * FROM users WHERE username = ? AND password = ?", (username, password))
+    cur.execute(
+        "SELECT * FROM users WHERE username = ? AND password = ?", (username, password))
     user = cur.fetchone()
     con.close()
     return user is not None
 
+
 # handles the login page and logic for login in
 @app.route('/login', methods=['POST', 'GET'])
 def login():
-        if request.method == 'POST':
-            username = request.form['username']
-            password = request.form['password']
+    if request.method == 'POST':
+        username = request.form['username']
+        password = request.form['password']
 
-            if check_credentials(username, password):
-                session['logged_in'] = True
-                return redirect(url_for('all_pets'))
-            else:
-                # Display an error message for incorrect credentials
-                return "Error with these credentials"
+        if check_credentials(username, password):
+            session['logged_in'] = True
+            return redirect(url_for('all_pets'))
         else:
-            return render_template('login.html')
+            # Display an error message for incorrect credentials
+            return "Error with these credentials"
+    else:
+        return render_template('login.html')
+
 
 # landing page - handling form data and storing in database
 # TODO Remove form data after submission - Add login to database button and login process
@@ -74,7 +81,7 @@ def add_pet():
     # If a GET request - go to the landing page
     if request.method == 'GET':
         return render_template("index.html")
-    #if a POST request - take the data from the forms and add to the database
+    # if a POST request - take the data from the forms and add to the database
     elif request.method == 'POST':
         owner_name = request.form["owner_name"]
         pet_name = request.form["pet_name"]
@@ -90,7 +97,7 @@ def add_pet():
 
         # Insert data into the table
         cursor.execute(
-            "INSERT INTO pets (owner_name, pet_name, pet_type, pet_id) VALUES (?, ?, ?, ?)",
+            "INSERT INTO pets (owner_name, pet_name, pet_type, pet_id) VALUES(?, ?, ?, ?)",
             (owner_name, pet_name, pet_type, pet_id)
         )
         db.commit()
@@ -133,7 +140,8 @@ def all_pets():
                 conditions.append("pet_id = ?")
             query += " AND ".join(conditions)
 
-            parameters = tuple([escape_input(val) for val in (owner_name_delete, pet_name_delete, pet_type_delete, pet_id) if val])
+            parameters = tuple([escape_input(val) for val in (
+                owner_name_delete, pet_name_delete, pet_type_delete, pet_id) if val])
             cursor.execute(query, parameters)
             db.commit()
 
@@ -142,10 +150,13 @@ def all_pets():
             return f"An error occurred: {e}", 500
 
 # TODO Need to implement a robust escape_input function for security
+
+
 def escape_input(value):
     # Properly escape user-provided input to preven
     # Consider using built-in escaping mechanisms or libraries
     return value  # Replace with actual escaping logic
+
 
 if __name__ == '__main__':
     app.run()
