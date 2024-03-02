@@ -143,7 +143,7 @@ def all_pets():
 
 # TODO Need to implement a robust escape_input function for security
 def escape_input(value):
-    # Properly escape user-provided input to prevent SQL injection
+    # Properly escape user-provided input to preven
     # Consider using built-in escaping mechanisms or libraries
     return value  # Replace with actual escaping logic
 
