@@ -103,8 +103,8 @@ if __name__ == "__main__":
     # TODO - receive file from front end and put it through the model - to replace accessing the folders
 
     # access folder
-    healthy_folder = "/Users/julie/vv/vet-vision/templates/ML-Model/Healthy"  # Specify the Healthy folder path
-    broken_folder = "/Users/julie/vv/vet-vision/templates/ML-Model/Broken"  # Specify the Broken folder path
+    healthy_folder = "/Users/Ryan/Documents/Uni/testproject/templates/ML-Model/Healthy"  # Specify the Healthy folder path
+    broken_folder = "/Users/Ryan/Documents/Uni/testproject/templates/ML-Model/Broken"  # Specify the Broken folder path
 
     # sort images
     healthyArr = healthyTraining(healthy_folder)
