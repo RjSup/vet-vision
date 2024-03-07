@@ -112,3 +112,4 @@ if __name__ == "__main__":
 
     # call main algo with healthy and broken arrays
     algo(healthyArr, brokenArr)
+    
