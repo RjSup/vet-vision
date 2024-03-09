@@ -6,44 +6,47 @@
 </head>
 <body>
     <div class="im" style="background-image:url(../static/catcatdogdog.avif);">
-        <header class="header">
-            <img src="../static/logo.png" alt="">
-        <a class="logo" href="/">VetVision</a>
-        <ul class="menu">
-            <li><a href="" class="link link-theme link-arrow">Home</a></li>
-            <li><a href="" class="link link-theme link-arrow">About</a></li>
-            <li><a href="" class="link link-theme link-arrow">Contact</a></li>
-            <li><a href="/login" method="POST" class="link link-theme link-arrow">Login</a></li>
-        </ul>
-        </header>
-        <div class="p1">
-            <h1>Diagnose Pet</h1>
-            <form method="POST">
-                <label for="owner_name">Owner Name:</label>
-                <input type="text" id="owner_name" name="owner_name" required>
-                <br>
-                <label for="pet_name">Pet Name:</label>
-                <input type="text" id="pet_name" name="pet_name" required>
-                <br>
-                <label for="pet_type">Pet Type:</label>
-                <input type="text" id="pet_type" name="pet_type" required>
-                <br>
-                <label for="pet_id">Pet ID:</label>
-                <input type="text" id="pet_id" name="pet_id" required>
-                <br>
-                <button type="submit">Add Pet</button>
-            </form>
-            <form method="post" enctype="multipart/form-data">
-                <div>
-                  <label for="file">Choose file to upload</label>
-                  <input type="file" id="file" name="file" multiple />
-                </div>
-                <div>
-                  <button>Submit</button>
-                </div>
-            </form>
-        </div>
     </div>
+        <div>
+            <header class="header">
+                <img src="../static/logo.png" alt="">
+            <a class="logo" href="/">VetVision</a>
+            <ul class="menu">
+                <li><a href="" class="link link-theme link-arrow">Home</a></li>
+                <li><a href="" class="link link-theme link-arrow">About</a></li>
+                <li><a href="" class="link link-theme link-arrow">Contact</a></li>
+                <li><a href="/login" method="POST" class="link link-theme link-arrow">Login</a></li>
+            </ul>
+            </header>
+            <div class="p1">
+                <h1>Diagnose Pet</h1>
+                <form method="POST">
+                    <label for="owner_name">Owner Name:</label>
+                    <input type="text" id="owner_name" name="owner_name" required>
+                    <br>
+                    <label for="pet_name">Pet Name:</label>
+                    <input type="text" id="pet_name" name="pet_name" required>
+                    <br>
+                    <label for="pet_type">Pet Type:</label>
+                    <input type="text" id="pet_type" name="pet_type" required>
+                    <br>
+                    <label for="pet_id">Pet ID:</label>
+                    <input type="text" id="pet_id" name="pet_id" required>
+                    <br>
+                    <button type="submit">Add Pet</button>
+                </form>
+                <form method="post" enctype="multipart/form-data">
+                    <div>
+                      <label for="file">Choose file to upload</label>
+                      <input type="file" id="file" name="file" multiple />
+                    </div>
+                    <div>
+                      <button>Submit</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+
 
     <div class="p2">
 
