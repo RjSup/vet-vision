@@ -11,8 +11,10 @@ html, body {
     flex-direction: column; /* Stack elements vertically */
     align-items: center; /* Center elements horizontally */
     justify-content: center; /* Center elements vertically within viewport */
-    height: 100vh; /* Set contact section to full screen height */
+    height: fit-content; /* Set contact section to full screen height */
     background-color: #f1f1f1; /* Optional background color */
+    padding-top: 15px;
+    padding-bottom: 15px;
   }
   
   .contact-section h2 {
@@ -26,10 +28,12 @@ html, body {
     border-radius: 5px; /* Add rounded corners for modern look */
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Add subtle shadow */
     margin: 0 auto; /* Center form horizontally */
+    width: 50%;
   }
   
   .contact-section .form-group {
     margin-bottom: 15px; /* Spacing between form groups */
+    padding-right: 20px;
   }
   
   .contact-section label {
