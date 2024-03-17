@@ -103,6 +103,13 @@ def add_pet():
         db.commit()
 
         return "Pet added successfully!"
+    
+
+@app.route('/contact', methods=['GET', 'POST'])
+def contact():
+    # If a GET request - go to the landing page
+    if request.method == 'GET':
+        return render_template("contact.html")
 
 
 # Database page handles checking the database and removing data

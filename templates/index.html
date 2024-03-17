@@ -11,15 +11,15 @@
                 <img src="../static/logo.png" alt="">
             <a class="logo" href="/">VetVision</a>
             <ul class="menu">
-                <li><a href="" class="link link-theme link-arrow">Home</a></li>
-                <li><a href="" class="link link-theme link-arrow">About</a></li>
-                <li><a href="" class="link link-theme link-arrow">Contact</a></li>
+                <li><a href="#home" class="link link-theme link-arrow">Home</a></li>
+                <li><a href="/contact" method="POST" class="link link-theme link-arrow">Contact</a></li>
                 <li><a href="/login" method="POST" class="link link-theme link-arrow">Login</a></li>
             </ul>
             </header>
-            <div class="p1">
+            <div class="p1" id="home">
                 <h1>Diagnose Pet</h1>
-                <form method="POST">
+                <div class="form-container1">
+                  <form method="POST">
                     <label for="owner_name">Owner Name:</label>
                     <input type="text" id="owner_name" name="owner_name" required>
                     <br>
@@ -33,8 +33,10 @@
                     <input type="text" id="pet_id" name="pet_id" required>
                     <br>
                     <button type="submit">Add Pet</button>
-                </form>
-                <form method="post" enctype="multipart/form-data">
+                  </form>
+                </div>
+                <div class="form-container2">
+                  <form method="post" enctype="multipart/form-data">
                     <div>
                       <label for="file">Choose file to upload</label>
                       <input type="file" id="file" name="file" multiple />
@@ -42,8 +44,16 @@
                     <div>
                       <button>Submit</button>
                     </div>
-                </form>
+                  </form>
+                </div>
             </div>
+
+            <div class="about-section" id="about">
+                <h2>About Us</h2>
+                <p>At VetVision, we are passionate about improving the lives of pets and the efficiency of veterinary care. <br>
+                    We are a dedicated team of veterinarians, data scientists, and software engineers driven by the power of artificial intelligence (AI) to transform X-ray analysis in animal health.</p>
+            </div>
+            
         </div>
     </div>
 </div>
