@@ -1,11 +1,12 @@
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <link href="static/login.css" rel="stylesheet" type="text/css" media="all">
+    <title>Login</title>
 </head>
-    <body>
-        <div>
-          <header class="header">
-            <img src="../static/logo.png" alt="">
+<body>
+    <header class="header">
+        <img src="../static/logo.png" alt="">
         <a class="logo" href="/">VetVision</a>
         <ul class="menu">
             <li><a href="" class="link link-theme link-arrow">Home</a></li>
@@ -13,31 +14,32 @@
             <li><a href="" class="link link-theme link-arrow">Contact</a></li>
             <li><a href="/login" method="POST" class="link link-theme link-arrow">Login</a></li>
         </ul>
-        </header>
+    </header>
 
-            <div class="box">
-                <h1>Log In</h1>
-                <form method="POST">
-                  <input type="text" name="username" id="username" placeholder="Username" required/>
-                  <br>
-                  <input type="password" name="password" id="password" placeholder="Password" required/>
-                  <br>
-                  <input type="submit" class="button" value="Log In"/>
-                </form>
-          </div>
+    <div class="container">
+        <div class="box">
+            <h1>Log In</h1>
+            <form method="POST">
+                <input type="text" name="username" id="username" placeholder="Username" required/>
+                <br>
+                <input type="password" name="password" id="password" placeholder="Password" required/>
+                <br>
+                <input type="submit" class="button" value="Log In"/>
+            </form>
         </div>
-    
-    {%if users%}
-    <div class="users" style="margin-left:20%">
-      <h2>Registered Users List</h2>
-      <table style="width:100%;">
-        {%for user in users%}
-          <tr>
-            <td>{{user[0]}}</td>
-          </tr>   
-        {%endfor%}
-      </table>
     </div>
-    {%endif%}
+
+    {% if users %}
+    <div class="users">
+        <h2>Registered Users List</h2>
+        <table>
+            {% for user in users %}
+            <tr>
+                <td>{{ user[0] }}</td>
+            </tr>
+            {% endfor %}
+        </table>
+    </div>
+    {% endif %}
 </body>
 </html>

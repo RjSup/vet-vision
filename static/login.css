@@ -1,50 +1,103 @@
-body,
-input,
-textarea,
-select {
+/* Global Styles */
+body {
   font-family: 'Open Sans', sans-serif;
-  font-size: 12px;
+  font-size: 16px;
   color: #4c4c4c;
+  margin: 0;
+  padding: 0;
+  background-color: #f7f7f7;
 }
 
-h1 {
-  font-size: 32px;
-  font-weight: 300;
-  color: #4c4c4c;
+.container {
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+/* Header Styles */
+.header {
+  background-color: #4CAF50;
+  color: white;
+  padding: 15px 0;
   text-align: center;
-  padding-top: 10px;
-  margin-top: 20px;
-  margin-bottom: 10px;
 }
 
-.box h2{
-  text-align: center;
-  margin-top: 30px;
+.header a {
+  color: white;
+  text-decoration: none;
 }
 
+.menu {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+
+.menu li {
+  display: inline;
+  margin-right: 20px;
+}
+
+.menu li:last-child {
+  margin-right: 0;
+}
+
+/* Form Styles */
 .box {
   margin: 20px auto;
-  width: 310px; 
-  height: 260px; 
-  -webkit-border-radius: 8px/7px; 
-  -moz-border-radius: 8px/7px; 
-  border-radius: 8px/7px; 
-  background-color: white; 
-  -webkit-box-shadow: 1px 2px 5px grey; 
-  -moz-box-shadow: 1px 2px 5px grey; 
-  box-shadow: 1px 2px 5px grey; 
+  width: 310px;
+  height: auto;
+  border-radius: 8px;
+  background-color: white;
+  box-shadow: 1px 2px 5px grey;
   border: solid 1px grey;
+  padding: 20px;
 }
 
-.footer h4{
-  text-align: right;
-  margin-right: 30%;
+.box h1 {
+  font-size: 24px;
+  font-weight: 300;
+  text-align: center;
+  margin-top: 0;
+}
+
+input[type="text"],
+input[type="password"],
+input[type="submit"] {
+  width: calc(100% - 40px);
+  padding: 10px;
+  margin: 10px 20px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+input[type="submit"] {
+  background-color: #4CAF50;
+  color: white;
+  border: none;
+  cursor: pointer;
+}
+
+input[type="submit"]:hover {
+  background-color: #45a049;
+}
+
+/* Users List Styles */
+.users {
   margin-top: 30px;
+  text-align: center;
 }
 
+.users h2 {
+  margin-top: 0;
+}
 
-input{
-  margin-top: 15px;
-  margin-left: 25%;
-  margin-right:25%;
+.users table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.users table td {
+  padding: 10px;
+  border-bottom: 1px solid #ccc;
 }
