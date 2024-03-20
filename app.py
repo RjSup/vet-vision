@@ -116,6 +116,12 @@ def add_pet():
         return "Pet added successfully!"
     
 
+@app.route('/logout')
+def logout():
+    session.pop('logged_in', None)
+    return redirect(url_for('login'))
+    
+
 @app.route('/contact', methods=['GET', 'POST'])
 def contact():
     # If a GET request - go to the landing page
