@@ -11,7 +11,6 @@ from flask import (
 import os
 import sqlite3 as sql
 from dotenv import load_dotenv
-import Algo
 
 # Load the .env file from root directory
 load_dotenv()
@@ -88,16 +87,6 @@ def add_pet():
         pet_name = request.form["pet_name"]
         pet_type = request.form["pet_type"]
         pet_id = request.form["pet_id"]
-        
-        # Fetch the uploaded file from request.form
-        uploaded_file = request.files['file']
-
-        # Save the uploaded file to a temporary location
-        tempFile = 'templates/ML-Model/tempFiles/'
-        uploaded_file.save(tempFile)
-
-        # Call a function in the other file and pass the file path
-        Algo.process_file(tempFile)
 
         # Get a database connection within the route context
         db = get_pet_db()
