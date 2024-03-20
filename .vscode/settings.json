@@ -1,5 +1,6 @@
 {
     "python.analysis.extraPaths": [
-        "./templates"
+        "./templates",
+        "./templates/ML-Model"
     ]
 }
